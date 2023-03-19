@@ -4,15 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
+
+    <EditText
+        android:id="@+id/unitValue"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:hint="Unit Value"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
+        android:id="@+id/serviceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/unitValue"
+        android:text="Convert the value from:"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="138dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceText"
+        android:checkedButton="@id/mm_oz"
+        >
+
+        <RadioButton
+            android:id="@+id/mm_oz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MilliLeters to Ounces" />
+
+        <RadioButton
+            android:id="@+id/cups_g"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cups to Grams"/>
+
+
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/roundUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/option"
+        android:text="Reverse?"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <Switch
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/switchButton" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        android:text="Converted Value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
