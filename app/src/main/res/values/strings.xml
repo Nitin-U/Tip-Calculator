@@ -1,11 +1,10 @@
 <resources>
-    <string name="app_name">TipCalculator</string>
-    <string name="cost_of_service">Cost of Service</string>
-    <string name="how_was_the_service">How was the service?</string>
-    <string name="amazing_20">Amazing (20%)</string>
-    <string name="good_18">Good (18%)</string>
-    <string name="okay_15">Okay (15%)</string>
-    <string name="round_up_tip">Round up tip?</string>
+    <string name="app_name">Cooking Unit Converter</string>
+    <string name="unit_value">Unit Value</string>
+    <string name="convert_the_value_from">Convert the value from:</string>
+    <string name="millileters_to_ounces">MilliLeters to Ounces</string>
+    <string name="cups_to_grams">Cups to Grams</string>
+    <string name="reverse">Reverse?</string>
     <string name="calculate">Calculate</string>
-    <string name="tip_amount">Tip Amount</string>
+    <string name="converted_value">Converted Value</string>
 </resources>

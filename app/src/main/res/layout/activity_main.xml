@@ -12,11 +12,11 @@
         android:id="@+id/unitValue"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:hint="Unit Value"
+        android:hint="@string/unit_value"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/serviceText"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/unitValue"
-        android:text="Convert the value from:"
+        android:text="@string/convert_the_value_from"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="138dp"
         />
@@ -42,13 +42,13 @@
             android:id="@+id/mm_oz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MilliLeters to Ounces" />
+            android:text="@string/millileters_to_ounces" />
 
         <RadioButton
             android:id="@+id/cups_g"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cups to Grams"/>
+            android:text="@string/cups_to_grams"/>
 
 
 
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/option"
-        android:text="Reverse?"
+        android:text="@string/reverse"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="234dp" />
@@ -71,6 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="false"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -79,7 +81,7 @@
         android:id="@+id/calculateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Calculate"
+        android:text="@string/calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchButton" />
@@ -91,7 +93,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:textStyle="bold"
-        android:text="Converted Value"
+        android:text="@string/converted_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
     />

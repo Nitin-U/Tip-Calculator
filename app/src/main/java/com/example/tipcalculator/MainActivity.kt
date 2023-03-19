@@ -1,46 +1,60 @@
 package com.example.tipcalculator
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
-import kotlin.math.roundToInt
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioGroup
+import android.widget.Switch
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var unitvalue: EditText
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var calcButton: Button
+    private lateinit var roundUpSwitch: Switch
+    private lateinit var convAmountText: TextView
+    private var convAmount = 0.0
+    private var convPercent = 0.0
 
-    private lateinit var calculateBtn: Button
-    private lateinit var costOfService: EditText
-    private lateinit var tipOptions: RadioGroup
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private lateinit var roundSwitch: Switch
-    private lateinit var tipAmount: TextView
-
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        calculateBtn = findViewById(R.id.calculateButton)
-        costOfService = findViewById(R.id.cost_of_service)
-        tipOptions = findViewById(R.id.tipOption)
-        roundSwitch = findViewById(R.id.switchButton)
-        tipAmount = findViewById(R.id.tipAmountText)
+        unitvalue = findViewById(R.id.unitValue)
+        calcButton = findViewById(R.id.calculateButton)
+        radioGroup = findViewById(R.id.option)
+        roundUpSwitch = findViewById(R.id.switchButton)
+        convAmountText = findViewById(R.id.result)
 
-        calculateBtn.setOnClickListener {
-            val text = costOfService.text.toString()
-            var tipPercent = 0f
-            var totalTip = 0f
-            when (tipOptions.checkedRadioButtonId) {
-                R.id.twentyPercent -> tipPercent = 0.2f
-                R.id.eighteenPercent -> tipPercent = 0.18f
-                R.id.fifteenPercent -> tipPercent = 0.15f
-                else -> tipPercent = 0.2f
+        calcButton.setOnClickListener {
+            val cost = unitvalue.text.toString().toDoubleOrNull() ?: 0.0
+            val checkedRadioButton = radioGroup.checkedRadioButtonId
+
+            when (checkedRadioButton) {
+                R.id.mm_oz -> {
+                    convPercent = if (roundUpSwitch.isChecked) {
+                        100 / 3.38
+                    } else {
+                        3.38 / 100
+                    }
+                }
+                R.id.cups_g -> {
+                    convPercent = if (roundUpSwitch.isChecked) {
+                        0.0042
+                    } else {
+                        240.0
+                    }
+                }
+                else -> {
+                    convPercent = 0.0
+                }
             }
-            totalTip = text.toFloat() * tipPercent
-            if (roundSwitch.isChecked) {
-                totalTip = totalTip.roundToInt().toFloat()
-            }
-            tipAmount.text = "Tip amount: ${totalTip.toString()}"
+
+            convAmount = cost * convPercent
+
+            convAmountText.text = convAmount.toString()
         }
     }
 }
