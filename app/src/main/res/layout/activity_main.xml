@@ -9,52 +9,48 @@
     tools:ignore="ExtraText">
 
     <EditText
-        android:id="@+id/cost_of_service"
+        android:id="@+id/unitValue"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:hint="@string/cost_of_service"
+        android:hint="Unit Value"
         android:inputType="numberDecimal"
-        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/serviceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
-        android:text="@string/how_was_the_service"
+        app:layout_constraintTop_toBottomOf="@id/unitValue"
+        android:text="Convert the value from:"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="138dp"
         />
 
     <RadioGroup
-        android:id="@+id/tipOption"
+        android:id="@+id/option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serviceText"
-        android:checkedButton="@id/twentyPercent"
+        android:checkedButton="@id/mm_oz"
         >
 
         <RadioButton
-            android:id="@+id/twentyPercent"
+            android:id="@+id/mm_oz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/amazing_20" />
+            android:text="MilliLeters to Ounces" />
 
         <RadioButton
-            android:id="@+id/eighteenPercent"
+            android:id="@+id/cups_g"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/good_18" />
+            android:text="Cups to Grams"/>
 
-        <RadioButton
-            android:id="@+id/fifteenPercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/okay_15" />
+
 
 
     </RadioGroup>
@@ -64,8 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tipOption"
-        android:text="@string/round_up_tip"
+        app:layout_constraintTop_toBottomOf="@id/option"
+        android:text="Reverse?"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="234dp" />
@@ -74,29 +70,28 @@
         android:id="@+id/switchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
+        android:checked="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipOption"
+        app:layout_constraintTop_toBottomOf="@+id/option"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/calculate"
+        android:text="Calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchButton" />
 
     <TextView
-        android:id="@+id/tipAmountText"
+        android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/tip_amount"
+        android:textStyle="bold"
+        android:text="Converted Value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
     />
