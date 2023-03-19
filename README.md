@@ -1,0 +1,1 @@
+![](TipCalc_Practice.gif)
